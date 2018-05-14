@@ -1,0 +1,102 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Connection</h4>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="host">Cassandra Host/Port</label>
+        <div class="row">
+          <div class="col-8">
+            <input type="text" class="form-control" id="host" placeholder="Host">
+          </div>
+          <div class="col-2">
+            <input type="number" class="form-control" id="port" placeholder="Port">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+
+      </div>
+      <div class="form-group" *ngIf="hasAuthentication||hasSSL||hasSSLClientAuth">
+        <ngb-tabset>
+          <ngb-tab title="Authentication" *ngIf="hasAuthentication">
+            <ng-template ngbTabContent>
+              <div style="margin-top:20px">
+                <div class="form-group">
+                  <label for="user-name">Username</label>
+                  <div class="row">
+                    <div class="col-8">
+                      <input type="text" class="form-control" id="user-name" placeholder="Username">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <div class="row">
+                    <div class="col-8">
+                      <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="SSL" *ngIf="hasSSL">
+            <ng-template ngbTabContent>
+              <div style="margin-top:20px">
+                <div class="form-group">
+                  <label for="trust-store">Trust Store (JKS)</label>
+                  <div class="row">
+                    <div class="col-8">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="key-store">
+                            <label class="custom-file-label" for="key-store">Choose file...</label>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="trust-store-pass">Trust Store Password</label>
+                  <div class="row">
+                    <div class="col-8">
+                      <input type="password" class="form-control" id="trust-store-pass">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="SSL Client Auth" *ngIf="hasSSClientAuth">
+            <ng-template ngbTabContent>
+              <div style="margin-top:20px">
+                <div class="form-group">
+                  <label for="key-store">Key Store (JKS)</label>
+                  <div class="row">
+                    <div class="col-8">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="key-store">
+                        <label class="custom-file-label" for="key-store">Choose file...</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="key-store-pass">Key Store Password</label>
+                  <div class="row">
+                    <div class="col-8">
+                      <input type="password" class="form-control" id="key-store-pass">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary">Connect</button>
+  </div>
+</ng-template>
