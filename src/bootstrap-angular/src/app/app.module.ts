@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { FileSelectorComponent } from './file-selector/file-selector.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConnectionComponent
+    ConnectionComponent,
+    FileSelectorComponent
   ],
   imports: [
     BrowserModule,

@@ -18,7 +18,7 @@
       <div class="form-group">
 
       </div>
-      <div class="form-group" *ngIf="hasAuthentication||hasSSL||hasSSLClientAuth">
+      <div class="form-group">
         <ngb-tabset>
           <ngb-tab title="Authentication" *ngIf="hasAuthentication">
             <ng-template ngbTabContent>
@@ -49,10 +49,13 @@
                   <label for="trust-store">Trust Store (JKS)</label>
                   <div class="row">
                     <div class="col-8">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="key-store">
-                            <label class="custom-file-label" for="key-store">Choose file...</label>
-                          </div>
+                      <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Choose file..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                          <button (click)="selectTruststore()" class="btn btn-secondary" type="button">Browse</button>
+                        </div>
+                      </div>
+                      <file-selector *ngIf="showTurstStoreSelector" (fileSelectorEvent)="handleTrustFileSelectorEvent($event)"></file-selector>
                     </div>
                   </div>
                 </div>
@@ -74,10 +77,13 @@
                   <label for="key-store">Key Store (JKS)</label>
                   <div class="row">
                     <div class="col-8">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="key-store">
-                        <label class="custom-file-label" for="key-store">Choose file...</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Choose file..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                          <button (click)="selectKeystore()" class="btn btn-secondary" type="button">Browse</button>
+                        </div>
                       </div>
+                      <file-selector *ngIf="showKeystoreSelector" (fileSelectorEvent)="handleKeyFileSelectorEvent($event)"></file-selector>
                     </div>
                   </div>
                 </div>
