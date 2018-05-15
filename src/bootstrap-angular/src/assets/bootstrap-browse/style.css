@@ -17,3 +17,19 @@
     cursor: inherit;
     display: block;
 }
+
+.toggle-children-wrapper-collapsed .toggle-children {
+    height: 16px !important;
+    width: 16px !important;
+    top: 5px !important;
+    transform: rotate(0) !important;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFfSURBVGhD7ZK9LkRRFEZPodGI+IufKJDcufS8A57Bo5BMLyq9MVHdhJGIQYgCCXM1k4lSotXRoPuOfWSX+4w7MsZO7JWsbvbJ+nLHGYZhGMZvgIpbwo7b8hWXFZF+X0XVjfG5DiiqTHG+U2n4g5oxFLMqRRZVzRj6GjUpsBNVjKEhza+gvT7vDwe9Pxr+kTgeecb5ZL1rnk3soj60wJnfQ0Navjbg/V3ifZ6qErcJcDq+zantQdb/KD2iSZyMrnFuHFxMvUjHmsTl9BPnxsHVzLt0rElqfOPcOLie/ZCONRkaOTeODemhhYb4m7lX6ViV1Mi5cdBIW+KxIkMj58axIT3UhmjThmjThmjThmjThmjThmjznw3J06Z0rMnQyLlxkJcOpGNNolHa59w4uJ9fkY41iTxZ5tz20KfboP8hpEf+0tBErnNmMWj1Ig3apAcyDYaW0MR5hmEYhtFFnPsEarLYUOTpRhkAAAAASUVORK5CYII=) !important;
+  }
+
+  .toggle-children-wrapper-expanded .toggle-children {
+    height: 16px !important;
+    width: 16px !important;
+    top: 5px !important;
+    transform: rotate(0) !important;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJPSURBVGhD7ZjPS1RRFMevJEiEaJJCkEL09I1tdKPboJ21sIXQsn+hXTtBaJn9CTpKkaj4gyLBIAMHc2YkowTBhQtd2CZa2fIczxuOi+Ge+94b/HHP4n7gy2xmDp8v9z7mzJhAIBAIBK4CKJphmDZvsWjm84TePwuzpos/rgOSmiA5bDRUfE9NGZJ5KknmjZoydBrLkmAjUVGGivyU5BpNrUzRvLpwZswLfG9us15+6MO/JDGfIad/lBFWzIfGIknI65Sua8Sa2WgtkoSu6yRrZqO8yBfWzEZ5kU3WzCZ3kZkmxA8tiAu3ri2w2Pobyw8HceNRM+u6yVVkpR3xey9ipeAlUIn/QKX/OSvLZBZZbhOHX3egXACo9o2ytk1mkdIDcbCPUJl91rZJLZI8E8JAn4FS3Mrq9aQWWdFxrc5Tu15b926yej2pRda6xIG+ApXCIWvbpBb52i0O9BU6kVXWtkktshWJA32FTuQ1a9s4i7xrFof5DFTjMda2cRZZpG9XYZjP0BdjzNo2ziIfO8RhvkLX6j/OmxusbeMssn5XHOgxO6ws4yyyeV8a5i10ItOsLCMWSTbdciwO9BUq8pKVZcQicwpXk+2+x6wsIxZRtpokgR9RJyvLiEXUrSbxCeu6EYuoW03iddZ1Q0XsP+jUrSZx9r8p9AN/qa6EwtUEt/ufsa4bmDJP6oooW03oWh3BQdTCuunQqYxToFbkk57VhEr8hWrvMGvmg05miJ6XN/j5zg586zn2lo2eI3rdhVI0jrsD7awXCAQCgcAlYswZ33Z+AO24BccAAAAASUVORK5CYII=) !important;
+  }

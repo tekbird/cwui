@@ -25,4 +25,8 @@ public class FileMetadata {
 	public void setFullPath(String absolutePath) {
 		this.fullPath = absolutePath;
 	}
+	
+	public String getFullPath() {
+		return this.fullPath;
+	}
 }

@@ -1,6 +1,11 @@
 <div class="dropdown-menu" style="display: block; border: 5px solid #ccc; position:absolute; top: -218px; left: 177px; height: 400px; right: -100px">
-  <button type="button" class="close pull-right" aria-label="Close" style="margin-right: 10px" (click)="closeFileSelector()">
+  <button type="button" class="close pull-right" aria-label="Close" style="margin-right: 3px; margin-top: -10px" (click)="closeFileSelector()">
     <span aria-hidden="true">&times;</span>
   </button>
-  
+  <div style="padding: 20px; height:100%;width:100%;">
+    <div style="height:100%;width:100%;overflow:auto">
+        <tree-node [node]="nodes"></tree-node>
+    </div>
+  </div>
+  <loader #loaderComponent isShowing="true"></loader>
 </div>

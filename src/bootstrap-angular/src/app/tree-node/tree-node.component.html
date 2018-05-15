@@ -1,0 +1,13 @@
+<ul style="margin: 0;padding:0">
+  <li *ngFor="let node of node.children" (click)="loadChildren($event,treeNode)" style="list-style: none">
+    <div>
+      <fa name="folder"></fa>
+      <fa name="folder-open"></fa>
+      <fa name="cog" animation="spin"></fa>
+      <span>{{node.name}}</span>
+    </div>
+    <div style="margin-left:20px">
+      <tree-node [node]="node" #treeNode></tree-node>
+    </div>
+  </li>
+</ul>
