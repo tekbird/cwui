@@ -1,11 +1,13 @@
-<div class="dropdown-menu" style="display: block; border: 5px solid #ccc; position:absolute; top: -218px; left: 177px; height: 400px; right: -100px">
-  <button type="button" class="close pull-right" aria-label="Close" style="margin-right: 3px; margin-top: -10px" (click)="closeFileSelector()">
-    <span aria-hidden="true">&times;</span>
-  </button>
-  <div style="padding: 20px; height:100%;width:100%;">
-    <div style="height:100%;width:100%;overflow:auto">
-        <tree-node [node]="nodes"></tree-node>
+<div style="z-index:100;display: flex;width:100%;min-height:100%;align-items: center;justify-content: center;position: fixed;top:0;left:0">
+  <div class="" style="display: block; border: 5px solid #ccc; height: 400px;width: 500px;background-color:#fff">
+    <button type="button" class="close pull-right" aria-label="Close" style="margin-top: -4px" (click)="closeFileSelector()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <div style="padding: 20px; height:100%;width:100%;">
+      <div style="height:100%;width:100%;overflow:auto">
+        <tree-node [node]="nodes" (treeEvent)="handleTreeEvent($event)"></tree-node>
+      </div>
     </div>
+    <loader #loaderComponent isShowing="true"></loader>
   </div>
-  <loader #loaderComponent isShowing="true"></loader>
 </div>

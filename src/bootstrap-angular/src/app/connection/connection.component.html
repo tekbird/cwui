@@ -3,106 +3,111 @@
     <h4 class="modal-title">Connection</h4>
   </div>
   <div class="modal-body">
-    <form>
-      <div class="form-group">
-        <label for="host">Cassandra Host/Port</label>
-        <div class="row">
-          <div class="col-8">
-            <input type="text" class="form-control" id="host" placeholder="Host">
-          </div>
-          <div class="col-4">
-            <input type="number" class="form-control" id="port" placeholder="Port">
+    <div>
+      <form [formGroup]="connectionForm">
+        <div class="form-group">
+          <label for="host">Cassandra Host/Port</label>
+          <div class="row">
+            <div class="col-8">
+              <input type="text" class="form-control" id="host" placeholder="Host">
+            </div>
+            <div class="col-4">
+              <input type="number" class="form-control" id="port" placeholder="Port">
+            </div>
           </div>
         </div>
-      </div>
-      <div class="form-group">
+        <div class="form-group">
 
-      </div>
-      <div class="form-group">
-        <ngb-tabset>
-          <ngb-tab title="Authentication" *ngIf="hasAuthentication">
-            <ng-template ngbTabContent>
-              <div style="margin-top:20px">
-                <div class="form-group">
-                  <label for="user-name">Username</label>
-                  <div class="row">
-                    <div class="col-8">
-                      <input type="text" class="form-control" id="user-name" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <ngb-tabset>
+            <ngb-tab title="Authentication" *ngIf="hasAuthentication">
+              <ng-template ngbTabContent>
+                <div style="margin-top:20px">
+                  <div class="form-group">
+                    <label for="user-name">Username</label>
+                    <div class="row">
+                      <div class="col-8">
+                        <input type="text" class="form-control" id="user-name" placeholder="Username">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="row">
+                      <div class="col-8">
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <div class="row">
-                    <div class="col-8">
-                      <input type="password" class="form-control" id="password" placeholder="Password">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ng-template>
-          </ngb-tab>
-          <ngb-tab title="SSL" *ngIf="hasSSL">
-            <ng-template ngbTabContent>
-              <div style="margin-top:20px">
-                <div class="form-group">
-                  <label for="trust-store">Trust Store (JKS)</label>
-                  <div class="row">
-                    <div class="col-8">
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Choose file..." aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                          <button (click)="selectTruststore()" class="btn btn-secondary" type="button">Browse</button>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab title="SSL" *ngIf="hasSSL">
+              <ng-template ngbTabContent>
+                <div style="margin-top:20px">
+                  <div class="form-group">
+                    <label for="trust-store">Trust Store (JKS)</label>
+                    <div class="row">
+                      <div class="col-8">
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Choose file..." formControlName="truststorePath" readonly>
+                          <div class="input-group-append">
+                            <button (click)="selectTruststore()" class="btn btn-secondary" type="button">Browse</button>
+                          </div>
                         </div>
                       </div>
-                      <file-selector *ngIf="showTurstStoreSelector" (fileSelectorEvent)="handleTrustFileSelectorEvent($event)"></file-selector>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="trust-store-pass">Trust Store Password</label>
+                    <div class="row">
+                      <div class="col-8">
+                        <input type="password" class="form-control" id="trust-store-pass">
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="trust-store-pass">Trust Store Password</label>
-                  <div class="row">
-                    <div class="col-8">
-                      <input type="password" class="form-control" id="trust-store-pass">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ng-template>
-          </ngb-tab>
-          <ngb-tab title="SSL Client Auth" *ngIf="hasSSClientAuth">
-            <ng-template ngbTabContent>
-              <div style="margin-top:20px">
-                <div class="form-group">
-                  <label for="key-store">Key Store (JKS)</label>
-                  <div class="row">
-                    <div class="col-8">
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Choose file..." aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                          <button (click)="selectKeystore()" class="btn btn-secondary" type="button">Browse</button>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab title="SSL Client Auth" *ngIf="hasSSClientAuth">
+              <ng-template ngbTabContent>
+                <div style="margin-top:20px">
+                  <div class="form-group">
+                    <label for="key-store">Key Store (JKS)</label>
+                    <div class="row">
+                      <div class="col-8">
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Choose file..." formControlName="keystorePath" readonly>
+                          <div class="input-group-append">
+                            <button (click)="selectKeystore()" class="btn btn-secondary" type="button">Browse</button>
+                          </div>
                         </div>
                       </div>
-                      <file-selector *ngIf="showKeystoreSelector" (fileSelectorEvent)="handleKeyFileSelectorEvent($event)"></file-selector>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="key-store-pass">Key Store Password</label>
+                    <div class="row">
+                      <div class="col-8">
+                        <input type="password" class="form-control" id="key-store-pass">
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="key-store-pass">Key Store Password</label>
-                  <div class="row">
-                    <div class="col-8">
-                      <input type="password" class="form-control" id="key-store-pass">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ng-template>
-          </ngb-tab>
-        </ngb-tabset>
-      </div>
-    </form>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+      </form>
+      <file-selector *ngIf="showKeystoreSelector" (fileSelectorEvent)="handleKeyFileSelectorEvent($event)"></file-selector>
+      <file-selector *ngIf="showTurstStoreSelector" (fileSelectorEvent)="handleTrustFileSelectorEvent($event)"></file-selector>
+    </div>
   </div>
   <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" placement="top" ngbTooltip="Load a saved connection"><fa name="download"></fa></button>
+    <button type="button" class="btn btn-outline-secondary"placement="top" ngbTooltip="Save"><fa name="save"></fa></button>
+    <button type="button" class="btn btn-outline-success"placement="top" ngbTooltip="Test connection"><fa name="check"></fa></button>
     <button type="submit" class="btn btn-primary">Connect</button>
   </div>
 </ng-template>

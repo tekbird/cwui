@@ -1,13 +1,16 @@
 <ul style="margin: 0;padding:0">
-  <li *ngFor="let node of node.children" (click)="loadChildren($event,treeNode)" style="list-style: none">
+  <li *ngFor="let node of node.children" tabindex="-1" (click)="loadChildren($event,treeNode)" style="list-style: none;max-width:100%;white-space:nowrap;cursor: pointer;" class="tree-node">
     <div>
-      <fa name="folder"></fa>
-      <fa name="folder-open"></fa>
-      <fa name="cog" animation="spin"></fa>
-      <span>{{node.name}}</span>
+      <fa name="folder-o" *ngIf="node.status==='folder'"></fa>
+      <fa name="file-o" *ngIf="node.status==='file'"></fa>
+      <fa name="folder-open-o" *ngIf="node.status==='folderopen'"></fa>
+      <fa name="cog" animation="spin" *ngIf="node.status==='loading'"></fa>
+      <fa name="database" *ngIf="node.status==='drive'"></fa>
+      <span style="white-space: nowrap;padding-left: 5px">{{node.name}}</span>
+      <button (click)="confirmSelection($event,treeNode)" class="btn btn-secondary btn-sm" *ngIf="node.selected" style="margin-left: 5px;height: 19px;line-height: 5px;padding-bottom: 6px;top: -2px;position: relative">select</button>
     </div>
     <div style="margin-left:20px">
-      <tree-node [node]="node" #treeNode></tree-node>
+      <tree-node [node]="node" #treeNode (treeEvent)="handleTreeEvent($event)"></tree-node>
     </div>
   </li>
 </ul>
