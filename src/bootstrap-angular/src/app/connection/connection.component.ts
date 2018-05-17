@@ -27,7 +27,13 @@ export class ConnectionComponent implements OnInit {
   ngOnInit() {
     this.connectionForm = new FormGroup({
       keystorePath: new FormControl(),
-      truststorePath: new FormControl()
+      truststorePath: new FormControl(),
+      host: new FormControl(),
+      port: new FormControl(),
+      username: new FormControl(),
+      password: new FormControl(),
+      keystorePassword: new FormControl(),
+      truststorePassword: new FormControl()
     });
   }
 
@@ -64,5 +70,10 @@ export class ConnectionComponent implements OnInit {
       this.connectionForm.controls["truststorePath"].setValue(message.path);
       this.showTurstStoreSelector = false;
     }
+  }
+
+  onConnect(){
+    debugger;
+    this.connectionForm.disable();
   }
 }
