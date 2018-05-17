@@ -10,6 +10,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { OverlayLoaderComponent } from './overlay-loader/overlay-loader.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TreeNodeComponent } from './tree-node/tree-node.component';
+import { ConnectionFormComponent } from './connection/connection-form/connection-form.component';
+import { ConnectionTestComponent } from './connection/connection-test/connection-test.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { TreeNodeComponent } from './tree-node/tree-node.component';
     ConnectionComponent,
     FileSelectorComponent,
     OverlayLoaderComponent,
-    TreeNodeComponent
+    TreeNodeComponent,
+    ConnectionFormComponent,
+    ConnectionTestComponent
   ],
   imports: [
     BrowserModule,
