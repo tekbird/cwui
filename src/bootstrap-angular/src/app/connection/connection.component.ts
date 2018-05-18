@@ -29,8 +29,7 @@ export class ConnectionComponent implements OnInit, AfterViewInit {
     this.modalRef = this.modalService.open(this.content, {
       centered: true,
       backdrop: 'static',
-      keyboard: false,
-      size: 'lg'
+      keyboard: false
     });
   }  
 }

@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TreeNodeComponent } from './tree-node/tree-node.component';
 import { ConnectionFormComponent } from './connection/connection-form/connection-form.component';
 import { ConnectionTestComponent } from './connection/connection-test/connection-test.component';
+import { ConnectionSaveComponent } from './connection/connection-save/connection-save.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ConnectionTestComponent } from './connection/connection-test/connection
     OverlayLoaderComponent,
     TreeNodeComponent,
     ConnectionFormComponent,
-    ConnectionTestComponent
+    ConnectionTestComponent,
+    ConnectionSaveComponent
   ],
   imports: [
     BrowserModule,

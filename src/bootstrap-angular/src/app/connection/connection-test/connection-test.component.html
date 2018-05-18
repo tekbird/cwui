@@ -1,15 +1,15 @@
 <div style="z-index:100;display: flex;width:100%;height:100%;align-items: center;justify-content: center;position: absolute;top:0;left:0">
-  <div class="" style="display: block; border: 5px solid #ccc; height:115px; width: 300px;background-color:#fff;align-items: center;justify-content: center;">
+  <div class="" style="display: block; border: 5px solid #ccc; height:108px; width: 300px;background-color:#fff;align-items: center;justify-content: center;position: relative;">
 
-    <button type="button" class="close pull-right" aria-label="Close" style="margin-top: -4px" (click)="closeView()">
+    <button type="button" class="close" aria-label="Close" style="margin-top: -4px;position:absolute;right:0;top:0" (click)="closeView()">
       <span aria-hidden="true">&times;</span>
     </button>
 
-    <div style="text-align:center;margin:15px" *ngIf="isChecking">
+    <div style="text-align:center;padding-top:14px" *ngIf="isChecking">
       <loader isShowing="true"></loader>
     </div>
 
-    <div style="text-align:center;margin:15px" *ngIf="isSuccess">
+    <div style="text-align:center;padding-top:14px" *ngIf="isSuccess">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2" style="display:inline">
         <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"
         />
@@ -19,7 +19,7 @@
       <br/>
       <span class="text-success">Connection Succesful</span>
     </div>
-    <div style="text-align:center;margin:15px" *ngIf="isFailure">
+    <div style="text-align:center;padding-top:14px" *ngIf="isFailure">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2" style="display:inline">
         <circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"
         />

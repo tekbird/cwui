@@ -24,7 +24,8 @@ export class ConnectionFormComponent implements OnInit {
       username: new FormControl(),
       password: new FormControl(),
       keystorePassword: new FormControl(),
-      truststorePassword: new FormControl()
+      truststorePassword: new FormControl(),
+      name: new FormControl()
     });
     this.focus.nativeElement.focus();
   }
@@ -60,6 +61,10 @@ export class ConnectionFormComponent implements OnInit {
     else if (message.action == "close") this.isTestingConnection = false;
   }
 
+  handleConnectionSavingEvents(message) {
+    if (message.action == "close") this.isSavingConnection = false;
+  }
+
   showErrors: boolean = false;
 
   onConnect() {
@@ -75,6 +80,15 @@ export class ConnectionFormComponent implements OnInit {
   onTestConnection() {
     if (this.connectionForm.valid) {
       this.isTestingConnection = true;
+    }
+  }
+
+  connectionLoaded: boolean = false;
+
+  isSavingConnection: boolean = false;
+  onSaveConnection() {
+    if (this.connectionForm.valid) {
+      this.isSavingConnection = true;
     }
   }
 }

@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ConnectionTestComponent implements OnInit {
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
 
   }
 
@@ -23,19 +23,24 @@ export class ConnectionTestComponent implements OnInit {
       action: "init",
       component: this
     })
-    setTimeout(() => {
-      this.isChecking=false;
-      this.isFailure=true;
-    }, 2000);
   }
 
-  closeView(){
+  closeView() {
     this.connectionEvents.emit({
       action: "close"
     })
   }
 
-  setData(formData: any){
-    console.log(formData);
+  setData(formData: any) {
+    this.http.post("http://localhost:8080/connections/test", formData).subscribe((resp: any) => {
+      this.isChecking=false;
+      if (resp.success) {
+        this.isSuccess = true;
+      } else {
+        this.isFailure = true;
+      }
+    }, err=>{
+      this.closeView();
+    })
   }
 }
